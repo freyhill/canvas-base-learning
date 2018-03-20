@@ -1,0 +1,22 @@
+{
+  "name": "canvas-base-learning",
+  "version": "1.0.0",
+  "description": "canvas base learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+    "express":"latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leinov/canvas-base-learning.git"
+  },
+  "author": "leinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leinov/canvas-base-learning/issues"
+  },
+  "homepage": "https://github.com/leinov/canvas-base-learning#readme"
+}
