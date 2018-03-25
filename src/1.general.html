@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <canvas id="canvas1" width="200" height="100"></canvas>
+  <canvas id="canvas2" width="200" height="200"></canvas>
+  <canvas id="canvas3" width="200" height="200"></canvas>
+  <canvas id="canvas4" width="200" height="200"></canvas>
+  <canvas id="canvas5" width="200" height="200"></canvas>
+  <img id="img" src="img/pic.png" width="100px" alt="">
+  <canvas id="canvas6" width="200" height="200"></canvas>
+  <img id="img2" src="" width="100px" alt="">
+  <script type="text/javascript">
+
+
+      //填充一个颜色
+      var canvas  = document.getElementById("canvas1");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#F00000";
+      ctx.fillRect(0,0,150,75); //fillRect(x,y,width,height);
+
+
+      //填充一个渐变色
+      var canvas2 = document.getElementById("canvas2");
+      var ctx2 = canvas2.getContext("2d");
+      var gradient = ctx2.createLinearGradient(0,0,0,200); // 创建渐变
+      gradient.addColorStop(1,"black");
+      gradient.addColorStop(0,"white");
+      ctx2.fillStyle = gradient;
+      ctx2.fillRect(1,1,200,200);
+
+
+      //画线
+      var canvas3=document.getElementById("canvas3");
+      var ctx3=canvas3.getContext("2d");
+      ctx3.fillStyle = "skyblue";
+      ctx3.fillRect(0,0,200,200);
+      ctx3.moveTo(0,0);
+      ctx3.lineTo(200,100);
+      ctx3.moveTo(0,0);
+      ctx3.lineTo(200,200);
+      ctx3.lineTo(100,200);
+      ctx3.lineTo(200,100);
+      ctx3.stroke();
+
+
+      //画圆
+      var canvas4=document.getElementById("canvas4");
+      var ctx4=canvas4.getContext("2d");
+      ctx4.beginPath();
+      ctx4.arc(95,50,40,0,1*Math.PI);
+      ctx4.stroke();
+
+      //arc(x,y,r,sAngle,eAngle); 圆的中心x坐标,圆的中心y坐标,圆的半径,起始角 3点钟为0度，结束角
+
+
+      //写字
+      var canvas5=document.getElementById("canvas5");
+      var ctx5=canvas5.getContext("2d");
+      ctx5.font="30px Arial";
+      ctx5.fillText("Hello World",10,50);
+      //ctx5.strokeText("Hello World",10,50); //空心字
+
+
+      //画图
+
+
+     var canvas6 = document.getElementById("canvas6");
+     var ctx6 = canvas6.getContext("2d");
+     var newimg = new Image();
+     newimg.setAttribute('crossOrigin', 'anonymous'); //这句可加也可不加 用于跨域
+     newimg.src="../img/pic.png";
+     var base64;
+
+      newimg.onload = function(){
+
+        ctx6.drawImage(newimg,0,0,300,300);
+
+        base64 = canvas6.toDataURL("image/png"); //一定要在服务器环境才可以 直接打开文件不行
+
+        var img2 = document.getElementById("img2");
+        img2.src=base64;
+        }
+
+
+
+  </script>
+</body>
+</html>
