@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>fillstyle</title>
+  <title>strokeStyle</title>
   <style>
     canvas{
       border:1px solid #666;
@@ -19,14 +19,14 @@
 <body>
   <canvas id="canvas" width="300" height="300"></canvas>
   <canvas id="canvas2" width="200" height="200"></canvas>
-  <canvas id="canvas3" width="900" height="900"></canvas>
+  <canvas id="canvas3" width="600" height="300"></canvas>
 
   <img id="img" src="img/pic.png" alt="" />
 
   <script type="text/javascript">
 
       /**
-        fillstyle :填充方式
+        strokeStyle :返回触笔颜色渐变或者模式
         1.填充纯色
         2.填充渐变色
         3.模式
@@ -37,11 +37,11 @@
       */
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
-      ctx.fillStyle = "#ff0000"; //context.fillStyle=color|gradient|pattern;
-      ctx.fillRect(0,0,200,200);
+      ctx.strokeStyle = "#ff0000"; //context.fillStyle=color|gradient|pattern;
+      ctx.strokeRect(20,20,200,200);
 
       /*
-       2.填充渐变色
+       2.渐变触笔
        createLinearGradient(x0,y0,x1,y1) 方法创建线性的渐变对象。
         x0:起始x轴坐标
         y0:起始y轴坐标
@@ -54,27 +54,28 @@
       var flag = 1;
 
 
-        var gradient=ctx2.createLinearGradient(50,100,100,100);
-        gradient.addColorStop(0,"#fff");
+        var gradient=ctx2.createLinearGradient(50,100,170,100);
+        gradient.addColorStop(0,"red");
         gradient.addColorStop(0.5,"#f78560");
         gradient.addColorStop(1,"#000");
-        ctx2.fillStyle=gradient;
-        ctx2.fillRect(0,0,200,200)
+        ctx2.strokeStyle=gradient;
+        ctx2.strokeRect(0,0,200,200)
 
-    /*填充图像*/
+    /*文字触笔样式*/
     var canvas3 = document.getElementById("canvas3");
     var ctx3 = canvas3.getContext("2d");
-    ctx3.clearRect(0,0,canvas3.width,canvas3.height);
-    var img = document.getElementById("img");
-
-    img.onload=function(){//这句依然非常重要
-
-      var pat = ctx3.createPattern(img,"repeat-y"); // 这个是渲染方向 还有repeat,repeat-x no-repeat
-      ctx3.rect(0,0,900,900);
-      ctx3.fillStyle=pat;
-      ctx3.fill();
-
-    }
+    ctx3.font="90px Verdana";
+    var gradient = ctx3.createLinearGradient(0,0,300,300);
+    gradient.addColorStop("0","magenta");
+    gradient.addColorStop("0.5","blue");
+    gradient.addColorStop("1.0","red");
+    ctx3.strokeStyle=gradient;
+    ctx3.strokeText("Big smile!",0,90); 
+    /*
+    strokeText(text,x,y);
+     text:绘制
+     开始绘制文本的 x 坐标位置（相对于画布）
+    */
 
   </script>
 
