@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>shadowColor</title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300"></canvas>
+
+<script>
+ /*
+  shadowColor 阴影面积
+  shadowColor 阴影颜色
+  shadowOffsetX 属性设置或返回阴影与形状的水平距离。
+  shadowOffsetY 属性设置或返回阴影与形状的垂直距离。
+ */
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.shadowBlur = 30;
+  ctx.shadowColor="#666";
+  ctx.shadowOffsetX=-10;
+  ctx.shadowOffsetY=20;
+  ctx.fillStyle="red";
+  ctx.fillRect(20,20,100,80);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>shadowColor</title>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400"></canvas>
+
+<script>
+  /*
+    createRadialGradient 创建放射状渐变
+    x0, 渐变开始的圆的x轴坐标
+    y0 渐变开始的圆的y坐标
+    r0 开始圆的半径
+    x1 渐变的结束圆的 x 坐标
+    y1 渐变的结束圆的 y 坐标
+    r1 结束圆的半径
+
+    下面这样的描述更准确
+
+    xStart, yStart	开始圆的圆心的坐标。
+    radiusStart	开始圆的半径。
+    xEnd, yEnd	结束圆的圆心的坐标。
+    radiusEnd	结束圆的半径。
+
+   开始圆心跟结束圆心可以是同一个
+  */
+
+
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+
+  var grd = ctx.createRadialGradient(150,100,5,150,100,100 );
+  grd.addColorStop(0,"red");
+  grd.addColorStop(1,"white");
+
+  ctx.fillStyle = grd;
+  ctx.fillRect(0,0,300,300);
+
+</script>
+
+
+</body>
+</html>

@@ -65,12 +65,13 @@
     var canvas3 = document.getElementById("canvas3");
     var ctx3 = canvas3.getContext("2d");
     ctx3.font="90px Verdana";
+
     var gradient = ctx3.createLinearGradient(0,0,300,300);
     gradient.addColorStop("0","magenta");
     gradient.addColorStop("0.5","blue");
     gradient.addColorStop("1.0","red");
     ctx3.strokeStyle=gradient;
-    ctx3.strokeText("Big smile!",0,90); 
+    ctx3.strokeText("Big smile!",0,90);
     /*
     strokeText(text,x,y);
      text:绘制
